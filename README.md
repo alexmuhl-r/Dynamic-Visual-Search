@@ -7,17 +7,17 @@ Please note: all of these tasks require SR Research's Experiment Builder and an 
 
 The branches of this respository include different specific task configurations that have been used in our experiments:
 
-**exp1/2-control** was used in the control conditions in Experiments 1 and 2 in our JEP: Applied paper (see below)
+- **exp1/2-control** was used in the control conditions in Experiments 1 and 2 in our JEP: Applied paper (see below)
 
-**exp1-random** was used in the random condition of Experiment 1 in our JEP: Applied paper
+- **exp1-random** was used in the random condition of Experiment 1 in our JEP: Applied paper
 
-**exp2-random-sequence** was used in the random sequence of Experiment 2 in our JEP: Applied paper
+- **exp2-random-sequence** was used in the random sequence of Experiment 2 in our JEP: Applied paper
 
-**exp3-low-prevalence** was used in Experiment 3 in our JEP: Applied paper
+- **exp3-low-prevalence** was used in Experiment 3 in our JEP: Applied paper
 
-**colour-digit-dual-task** was used in our Applied Cognitive Psychology paper
+- **colour-digit-dual-task** was used in our Applied Cognitive Psychology paper
 
-**high-prevalence** was used in our preprint on PsyArXiv
+- **high-prevalence** was used in our preprint on PsyArXiv
 
 ### For more information about these tasks and how they have been used, please see our published papers, preprints and project page on the Open Science Framework:
 
