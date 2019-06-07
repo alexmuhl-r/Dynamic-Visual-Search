@@ -1,5 +1,5 @@
 # Dynamic Visual Search
-Dynamic visual search tasks in Python and SR Research's Experiment Builder by Alex Muhl-Richardson and Hayward Godwin
+Dynamic visual search tasks in Python and SR Research's Experiment Builder by Alex Muhl-Richardson and Hayward Godwin.
 
 Please note: all of these tasks require SR Research's Experiment Builder and an Eyelink eye tracker to run (tested on Eyelink 1000 and 1000 Plus). However, there is no reason in principle why the core elements of these tasks that exist as Python code could not be adapted to other software and hardware configurations.
 
