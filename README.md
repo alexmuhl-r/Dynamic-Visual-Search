@@ -7,6 +7,8 @@ Please note: all of these tasks require SR Research's Experiment Builder and an 
 
 The branches of this respository include different specific task configurations that have been used in our experiments:
 
+#### Stream 1 (JEP: Applied paper)
+
 - **[exp1/2-control](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp1/2-control)** was used in the control conditions in Experiments 1 and 2 in our JEP: Applied paper (see below)
 
 - **[exp1-random](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp1-random)** was used in the random condition of Experiment 1 in our JEP: Applied paper
@@ -15,7 +17,11 @@ The branches of this respository include different specific task configurations 
 
 - **[exp3-low-prevalence](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp3-low-prevalence)** was used in Experiment 3 in our JEP: Applied paper
 
+#### Stream 2 (ACP paper)
+
 - **[colour-digit-dual-task](https://github.com/alexmuhl-r/dynamic-visual-search/tree/colour-digit-dual-task)** was used in our Applied Cognitive Psychology paper
+
+#### Stream 3 (PsyArXiv preprint)
 
 - **[high-prevalence](https://github.com/alexmuhl-r/dynamic-visual-search/tree/high-prevalence)** was used in our preprint on PsyArXiv
 
