@@ -400,7 +400,6 @@ class CustomClassTemplate(sreb.EBObject):
 		
 		random.shuffle(self.trialArray)
 		
-		
 	# Used to reset the trial status
 	def reset(self):
 	
@@ -624,10 +623,11 @@ class CustomClassTemplate(sreb.EBObject):
 				
 				#Seriously, what the fuck was the point of the last part of this if statement?!
 				#I think it was a really dumb way of making sure there were target absent trials...
-				if self.stimMatrix[j].getObjectTimeToRise() <= 0 and self.stimMatrix[j].getStimstatus() == "PASSIVE" and self.isOccupied[j] == False and self.stimMatrix[j].getType() == "TARGET" and self.targetCurrentlyVisible == False:
+				if self.stimMatrix[j].getObjectTimeToRise() <= 0 and self.stimMatrix[j].getStimstatus() == "PASSIVE" and self.isOccupied[j] == False and self.stimMatrix[j].getType() == "TARGET" and self.targetCurrentlyVisible == False: #and self.numberTargetOnsets < self.numberTargets:
 			
 					self.stimMatrix[j].setStimstatus("ACTIVE")
 					self.isOccupied[j] = True
+					self.numberTargetOnsets = self.numberTargetOnsets + 1
 					#print("TARGET ONSET")
 					
 					if self.multiple == False:
@@ -695,12 +695,14 @@ class CustomClassTemplate(sreb.EBObject):
 						
 						updated = 0
 					
-						#Keep neutral background squares varying between the middle heat levels - random change to a new colour that is not the same colour or a colour one step away
-						if upDown == 1 and updated == 0:
-							tempColourList = [5,6,7,8,9,10,11,12,13,14,15]
-							tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-							self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+						#Keep neutral background squares varying between the middle heat levels
+						if (upDown == 1 and 5 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() - 1 >= 5) and updated == 0:
+							self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() - 1)
 							updated = 1
+						if (upDown == 0 and 5 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() + 1 <= 15) and updated == 0:
+							self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+							updated = 1
+							
 						
 					if (self.displayMatrix[rowIndex].getType() =="TARGET" or self.displayMatrix[rowIndex].getType() =="DISTRACTOR"):
 						
@@ -715,17 +717,19 @@ class CustomClassTemplate(sreb.EBObject):
 							updated = 0
 					
 							#Keep passive stim squares varying between the middle heat levels
-							if upDown == 1 and updated == 0:
-								tempColourList = [5,6,7,8,9,10,11,12,13,14,15]
-								tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-								self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+							if (upDown == 1 and 5 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() - 1 >= 5) and updated == 0:
+								self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() - 1)
 								updated = 1
+							if (upDown == 0 and 5 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() + 1 <= 15) and updated == 0:
+								self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+								updated = 1
+						
 						
 						#If it is a hot target - do this loop for temperature control
 						if self.stimMatrix[currentObject].getHot() == True:
 				
+						
 							upDown = random.randint(1,10)
-							targetDecider = random.randint(1,10)
 					
 							if upDown >= 8 and self.stimMatrix[currentObject].getStimstatus() == "IN_DECLINE" and self.clearing == True:
 					
@@ -736,25 +740,22 @@ class CustomClassTemplate(sreb.EBObject):
 					
 								updated = 0
 					
-								if upDown >= 8 and self.displayMatrix[rowIndex].getColour() != 2 and updated == 0:
-									#Allow to vary between any non-target colour for a while
-									tempColourList = [5,6,7,8,9,10,11,12,13,14,15]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
-									updated = 1
-								
-								#One in ten chance of being set to target colour
-								if targetDecider <= 6 and 4 > self.displayMatrix[rowIndex].getColour() > 0 and updated == 0:
-									self.displayMatrix[rowIndex].setColour(2)
-									self.numberTargetOnsets = self.numberTargetOnsets + 1
-									updated = 1
-									
-								if 6 <= upDown <= 7 and self.displayMatrix[rowIndex].getColour() != 2 and updated == 0:
-									tempColourList = [0,1,3,4]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+								if (upDown >= 8 and 2 < self.displayMatrix[rowIndex].getColour() <= 9 and self.displayMatrix[rowIndex].getColour() - 1 >= 2) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() - 1)
 									updated = 1
 										
+								#Extra if statements for looping colour round the end of the scale
+								if upDown >=8 and 10 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() + 1 <= 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+									updated = 1
+									
+								if upDown >=8 and self.displayMatrix[rowIndex].getColour() == 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(0)
+									updated = 1
+
+								if (upDown >=8 and self.displayMatrix[rowIndex].getColour() < 2 and self.displayMatrix[rowIndex].getColour() + 1 <= 2) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+									updated = 1
 								
 							if self.displayMatrix[rowIndex].getType() == "TARGET" and self.stimMatrix[currentObject].getStimstatus() == "ACTIVE" and self.stimMatrix[currentObject].getObjectTimeToMax() > 0:
 								
@@ -762,18 +763,22 @@ class CustomClassTemplate(sreb.EBObject):
 								
 								updated = 0
 
-								if upDown >=8 and upDownTwo == 0 and updated == 0:
-									tempColourList = [5,6,7,8,9,10,11,12,13,14,15]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+								if (upDown >=8 and upDownTwo == 0 and 2 < self.displayMatrix[rowIndex].getColour() <= 9  and self.displayMatrix[rowIndex].getColour() - 1 >= 3) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() - 1)
 									updated = 1
 									
-								if upDown <= 2 and self.displayMatrix[rowIndex].getColour() != 2 and updated == 0:
-									tempColourList = [0,1,3,4]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+								#Extra if statements for looping colour round the end of the scale
+								if upDown >=8 and 10 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() + 1 <= 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
 									updated = 1
 									
+								if upDown >=8 and self.displayMatrix[rowIndex].getColour() == 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(0)
+									updated = 1
+										
+								if (upDown >=8 and upDownTwo == 0 and self.displayMatrix[rowIndex].getColour() < 2 and self.displayMatrix[rowIndex].getColour() + 1 <= 1) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+									updated = 1
 								
 							#Distractors cannot go to max heat but can go up
 							if self.displayMatrix[rowIndex].getType()=="DISTRACTOR" and self.stimMatrix[currentObject].getStimstatus() == "ACTIVE":
@@ -782,19 +787,25 @@ class CustomClassTemplate(sreb.EBObject):
 								
 								updated = 0
 
-								if upDown >=8 and upDownTwo == 0 and self.displayMatrix[rowIndex].getColour() != 1 and self.displayMatrix[rowIndex].getColour() != 3 and updated == 0:
-									tempColourList = [0,4,5,6,7,8,9,10,11,12,13,14,15]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+								if (upDown >=8 and upDownTwo == 0 and 2 < self.displayMatrix[rowIndex].getColour() <= 9  and self.displayMatrix[rowIndex].getColour() - 1 >= 3) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() - 1)
 									updated = 1
 									
-								if upDown <= 2 and self.displayMatrix[rowIndex].getColour() > 4 and updated == 0:
-									tempColourList = [0,1,3,4]
-									tempColourList = [x for x in tempColourList if x is not self.displayMatrix[rowIndex].getColour() and x is not self.displayMatrix[rowIndex].getColour() + 1 and x is not self.displayMatrix[rowIndex].getColour() - 1]
-									self.displayMatrix[rowIndex].setColour(random.choice(tempColourList))
+								#Extra if statements for looping colour round the end of the scale
+								if upDown >=8 and 10 <= self.displayMatrix[rowIndex].getColour() <= 15 and self.displayMatrix[rowIndex].getColour() + 1 <= 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
 									updated = 1
 
-						#Cold targets redundant for current experiment
+								if upDown >=8 and self.displayMatrix[rowIndex].getColour() == 15 and updated == 0:
+									self.displayMatrix[rowIndex].setColour(0)
+									updated = 1
+										
+								if (upDown >=8 and upDownTwo == 0 and self.displayMatrix[rowIndex].getColour() < 2 and self.displayMatrix[rowIndex].getColour() + 1 <= 1) and updated == 0:
+									self.displayMatrix[rowIndex].setColour(self.displayMatrix[rowIndex].getColour() + 1)
+									updated = 1
+									
+									
+						#Cold targets redundant for current experiments
 						if self.stimMatrix[currentObject].getHot() == False:
 						
 							nothing = 0
@@ -826,8 +837,6 @@ class CustomClassTemplate(sreb.EBObject):
 			pylink.getEYELINK().sendMessage(blitmsg)
 						
 		self.shouldChangeDisplay = False
-		
-		pylink.getEYELINK().sendMessage("NUM_T_ONSETS;" + str(self.numberTargetOnsets))
 			
 		end = sreb.time.getCurrentTime()
 
@@ -932,7 +941,7 @@ class CustomClassTemplate(sreb.EBObject):
 				self.isOccupied[j] = False
 				
 				if (self.stimMatrix[j].getType() == "TARGET"):
-					targetClicked = True
+					targetClicked == True
 					self.targetCurrentlyVisible = False
 					self.stimMatrix[j].setStimstatus("CLEARED")
 					#print("TARGET CLEARED")
@@ -945,19 +954,6 @@ class CustomClassTemplate(sreb.EBObject):
 			
 				self.displayMatrix[j].setColour(random.choice([5,6,7,8,9,10,11,12,13,14,15]))
 				
-				# SET UP CELLS THAT NEIGHBOUR THE TARGET
-				#for x in range(-self.size[j], self.size[j]+1):
-
-					#for y in range(-self.size[j], self.size[j]+1):
-
-						# NOTE INCLUDES ZERO WHICH IS THE TARGET LOCATION
-						#newCell = self.determineBroadCellRowIndexInMatrix(self.objectLocs[j][0]+x, self.objectLocs[j][1]+y)
-
-						#self.displayMatrix[newCell][7] = "NEUTRAL"
-
-						# RESET TO DEFAULT RANDOMISATION THIS IS FOR TESTING PURPOSES TO ENSURE STUFF HAS RESPONDED
-						
-						#self.displayMatrix[newCell][5] = random.randint(7,9)
 						
 		return(targetClicked)
 		
