@@ -11,4 +11,4 @@ Muhl‐Richardson, A., Godwin, H. J., Garner, M., Hadwin, J. A., Liversedge, S. 
 Improving dynamic visual search via transcranial direct current stimulation and working memory training. 
 https://doi.org/10.31234/osf.io/kyxb8
 
-Muhl-Richardson, A., Godwin, H. J., Garner, M., Hadwin, J. A., Liversedge, S. P., & Donnelly, N. (2019). Searching and Monitoring Dynamically Changing Visual Displays. osf.io/ahufd
+Muhl-Richardson, A., Godwin, H. J., Garner, M., Hadwin, J. A., Liversedge, S. P., & Donnelly, N. (2019). Searching and Monitoring Dynamically Changing Visual Displays. https://osf.io/ahufd/
