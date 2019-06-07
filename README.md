@@ -3,7 +3,7 @@ Dynamic visual search tasks in Python and SR Research's Experiment Builder by Al
 
 Please note: all of these tasks require SR Research's Experiment Builder and an Eyelink eye tracker to run (tested on Eyelink 1000 and 1000 Plus). However, there is no reason in principle why the core elements of these tasks that exist as Python code could not be adapted to other software and hardware configurations.
 
-###### For more information about these tasks and how they have been used, please see our published papers, preprints and project page on the Open Science Framework:
+### For more information about these tasks and how they have been used, please see our published papers, preprints and project page on the Open Science Framework:
 
 Muhl-Richardson, A., Godwin, H. J., Garner, M., Hadwin, J. A., Liversedge, S. P & Donnelly, N. (2018). Individual Differences in Search and Monitoring for Color Targets in Dynamic Visual Displays. Journal of Experimental Psychology: Applied, 24(4), 564-577. http://dx.doi.org/10.1037/xap0000155
 
