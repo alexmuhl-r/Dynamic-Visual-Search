@@ -13,7 +13,7 @@ In all cases, use of the experiments is simple:
 
 ### Data
 
-These tasks generate behavioural and eye movement data and, because stimuli are generated on-the-fly, a large amount of stimuli data. For more information on what data is produced and how to process it, please read the relevant page in the Wiki here. 
+These tasks generate behavioural and eye movement data and, because stimuli are generated on-the-fly, a large amount of stimuli data. For more information on what data is produced and how to process it, please read the relevant page in the Wiki here: https://github.com/alexmuhl-r/dynamic-visual-search/wiki/Data 
 
 ### Branches
 
