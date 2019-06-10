@@ -11,6 +11,10 @@ In all cases, use of the experiments is simple:
 2. Open 'graph.ebd' in SR Research's Experiment Builder and specify desired properties (refresh rate, dummy mode, etc.)
 3. Hit the run button and the experiment will begin by asking for a number of task parameters, set these according to the branch readme/desried experimental conditions
 
+### Data
+
+These tasks generate behavioural and eye movement data and, because stimuli are generated on-the-fly, a large amount of stimuli data. For more information on what data is produced and how to process it, please read the relevant page in the Wiki here. 
+
 ### Branches
 
 The branches of this respository include different specific task configurations that have been used in our experiments:
