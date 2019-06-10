@@ -6,8 +6,8 @@ Please note: all of these tasks require SR Research's Experiment Builder and an 
 In all cases, use of the experiments is simple:
 
 1. Download the entire contents of your chosen branch
-2. Run 'graph.ebd' in SR Research's Experiment Builder and specify desired properties (refresh rate, dummy mode, etc.)
-3. The experiment will run and ask for a number of task parameters (set these according to the branch readme/desried experimental conditions)
+2. Open 'graph.ebd' in SR Research's Experiment Builder and specify desired properties (refresh rate, dummy mode, etc.)
+3. Hit the run button and the experiment will begin by asking for a number of task parameters, set these according to the branch readme/desried experimental conditions
 
 ### Branches
 
