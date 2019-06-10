@@ -3,6 +3,12 @@ Dynamic visual search tasks in Python and SR Research's Experiment Builder by Al
 
 Please note: all of these tasks require SR Research's Experiment Builder and an Eyelink eye tracker to run (tested on Eyelink 1000 and 1000 Plus). However, there is no reason in principle why the core elements of these tasks that exist as Python code could not be adapted to other software and hardware configurations.
 
+In all cases, use of the experiments is simple:
+
+1 - Download the entire contents of your chosen branch
+2 - Run 'graph.ebd' in SR Research's Experiment Builder and specify desired properties (refresh rate, dummy mode, etc.)
+3 - The experiment will run and ask for a number of task parameters (set these according to the branch readme/desried experimental conditions)
+
 ### Branches
 
 The branches of this respository include different specific task configurations that have been used in our experiments:
