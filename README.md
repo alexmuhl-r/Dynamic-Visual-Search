@@ -25,7 +25,7 @@ The branches of this respository include different specific task configurations 
 
 - **[exp1-random](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp1-random)** was used in the random condition of Experiment 1 in our JEP: Applied paper
 
-- **[exp2-random-sequence](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp2-random-sequence)** was used in the random sequence of Experiment 2 in our JEP: Applied paper
+- **[exp2-random-sequence](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp2-random-sequence)** was used in the random sequence condition of Experiment 2 in our JEP: Applied paper
 
 - **[exp3-low-prevalence](https://github.com/alexmuhl-r/dynamic-visual-search/tree/exp3-low-prevalence)** was used in Experiment 3 in our JEP: Applied paper
 
